@@ -5,7 +5,7 @@ rm(joinpath(@__DIR__, "..", "Manifest.toml"), force = true) # Remove local Manif
 push!(LOAD_PATH, joinpath(@__DIR__, ".."))
 
 using Pkg
-cd(@__DIR__)
+cd(@__DIR__) do
     Pkg.develop(PackageSpec(path=".."))
 end
 
