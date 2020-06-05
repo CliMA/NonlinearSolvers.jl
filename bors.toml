@@ -1,0 +1,7 @@
+status = [
+  "CliMA.NLSolvers.jl",
+  "docs-build"
+]
+delete_merged_branches = true
+timeout_sec = 86400
+block_labels = [ "do-not-merge-yet" ]
