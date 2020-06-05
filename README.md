@@ -16,8 +16,8 @@ A simple GPU-friendly package for solving systems of non-linear equations.
 [docs-bld-img]: https://github.com/CliMA/NLSolvers.jl/workflows/Documentation/badge.svg
 [docs-bld-url]: https://github.com/CliMA/NLSolvers.jl/actions?query=workflow%3ADocumentation
 
-[azure-img]: https://dev.azure.com/climate-machine/NLSolvers.jl/_apis/build/status/climate-machine.NLSolvers.jl?branchName=master
-[azure-url]: https://dev.azure.com/climate-machine/NLSolvers.jl/_build/latest?definitionId=1&branchName=master
+[azure-img]: https://dev.azure.com/climate-machine/NLSolvers.jl/_apis/build/status/CliMA.NLSolvers.jl?branchName=master
+[azure-url]: https://dev.azure.com/climate-machine/NLSolvers.jl/_build/latest?definitionId=24&branchName=master
 
 [codecov-img]: https://codecov.io/gh/CliMA/NLSolvers.jl/branch/master/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/CliMA/NLSolvers.jl
