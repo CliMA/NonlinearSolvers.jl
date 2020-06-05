@@ -1,14 +1,3 @@
-rm(joinpath(@__DIR__, "Manifest.toml"), force = true)       # Remove local Manifest.toml
-rm(joinpath(@__DIR__, "..", "Manifest.toml"), force = true) # Remove local Manifest.toml
-
-# Avoiding having to add deps to docs/ environment:
-push!(LOAD_PATH, joinpath(@__DIR__, ".."))
-
-using Pkg
-cd(@__DIR__) do
-    Pkg.develop(PackageSpec(path=".."))
-end
-
 using NLSolvers, Documenter
 
 pages = Any[
@@ -44,3 +33,4 @@ deploydocs(
     target = "build",
     push_preview = true,
 )
+
