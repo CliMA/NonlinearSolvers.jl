@@ -1,6 +1,6 @@
 name = "NLSolvers"
 uuid = "f4b8ab15-8e73-4e04-9661-b5912071d22b"
-authors = ["Charles Kawczynski <kawczynski.charles@gmail.com>"]
+authors = ["Climate Modeling Alliance"]
 version = "0.1.0"
 
 [deps]
@@ -9,4 +9,6 @@ DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
 
 [compat]
+CUDA = "2.2.1"
 DocStringExtensions = "0.8"
+ForwardDiff = "0.10.14"

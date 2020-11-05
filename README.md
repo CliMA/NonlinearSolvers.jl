@@ -6,7 +6,7 @@ A simple GPU-friendly package for solving systems of non-linear equations.
 |---------------------:|:----------------------------------------------|
 | **Documentation**    | [![dev][docs-dev-img]][docs-dev-url]          |
 | **Docs Build**       | [![docs build][docs-bld-img]][docs-bld-url]   |
-| **Buildkite CI**     | [![bkci][bkci-img]][bkci-url]              |
+| **Buildkite CI**     | [![bkci][bkci-img]][bkci-url]                 |
 | **Code Coverage**    | [![codecov][codecov-img]][codecov-url]        |
 | **Bors**             | [![Bors enabled][bors-img]][bors-url]         |
 
