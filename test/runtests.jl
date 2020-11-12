@@ -1,9 +1,18 @@
+if get(ARGS,1,"Array") == "CuArray"
+    using CUDA
+    const ArrayType = CUDA.CuArray
+else
+    const ArrayType = Array
+end
+
 using Test
 using NLSolvers
 using StaticArrays
 using NLsolve
 
-@testset "CPU tests" begin
+@show ArrayType
+
+@testset "NLSolvers" begin
     function f!(F, x)
         F[1] = (x[1]+3)*(x[2]^3-7)+18
         F[2] = sin(x[2]*exp(x[1])-1)
