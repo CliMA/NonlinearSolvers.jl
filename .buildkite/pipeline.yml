@@ -3,6 +3,18 @@ env:
   CUDA_VERSION: "10.2"
 
 steps:
+  - label: "init cpu env"
+    key: "init_cpu_env"
+    command:
+      - "echo $JULIA_DEPOT_PATH"
+      - "julia --project -e 'using Pkg; Pkg.instantiate(;verbose=true)'"
+      - "julia --project -e 'using Pkg; Pkg.precompile()'"
+      - "julia --project -e 'using Pkg; Pkg.status()'"
+    agents:
+      config: cpu
+      queue: central
+      slurm_ntasks: 1
+
   - label: "init gpu env"
     key: "init_gpu_env"
     command:
@@ -20,6 +32,14 @@ steps:
 
   - wait
 
+  - label: "CPU tests"
+    command:
+      - "julia --project -e 'using Pkg; Pkg.test()'"
+    agents:
+      config: cpu
+      queue: central
+      slurm_ntasks: 1
+
   - label: "GPU tests"
     command:
       - "julia --project -e 'using Pkg; Pkg.test(;test_args=[\"CuArray\"])'"
@@ -28,3 +48,4 @@ steps:
       queue: central
       slurm_ntasks: 1
       slurm_gres: "gpu:1"
+
