@@ -1,5 +1,5 @@
 status = [
-  "CliMA.NLSolvers.jl",
+  "buildkite/nlsolvers-ci",
   "docs-build"
 ]
 delete_merged_branches = true
