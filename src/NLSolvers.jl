@@ -6,36 +6,57 @@ A set of solvers for systems of non-linear equations
 module NLSolvers
 
 using DocStringExtensions
+using ForwardDiff
 
-export AbstractNonLinearSystem,
-    NonLinearSystem
+export solve!
+
+const FTypes = Union{AbstractFloat, AbstractArray}
 
 """
-    AbstractNonLinearSystem
+    AbstractNLSolverMethod
 
 A super type for non-linear systems
 """
-abstract type AbstractNonLinearSystem end
+abstract type AbstractNLSolverMethod{FTypes} end
 
 """
-    NonLinearSystem(f!::F!, x_init::A) where {F!, A<:AbstractArray}
+    method_args(method::AbstractNLSolverMethod)
 
-A non-linear system of equations type.
-
-# Fields
-$(DocStringExtensions.FIELDS)
+Return tuple of positional args for `AbstractNLSolverMethod`.
 """
-struct NonLinearSystem{F!, A} <: AbstractNonLinearSystem
-  "Function to find the root of"
-  f!::F!
-  "Initial guess"
-  x_init::A
-  "Storage for solution"
-  sol::A
-  function NonLinearSystem(f!::F!, x_init::A) where {F!, A<:AbstractArray}
-    sol = similar(x_init)
-    return new{F!, A}(f!, x_init, sol)
-  end
+function method_args end
+
+include("tolerance_types.jl")
+include("solution_types.jl")
+
+include("newton_method.jl")
+include("newton_method_ad.jl")
+
+# Main entry point: Dispatch to specific method
+"""
+    solve!(
+        method::AbstractNLSolverMethod{FT},
+        soltype::SolutionType = CompactSolution(),
+        tol::Union{Nothing, AbstractTolerance} = nothing,
+        maxiters::Union{Nothing, Int} = 10_000,
+    )
+
+Solve the non-linear system given
+ - `method` the numerical method
+ - `soltype` the solution type (`CompactSolution` or `VerboseSolution`)
+ - `tol` the stopping tolerance
+ - `maxiters` the maximum number of iterations to perform
+"""
+function solve!(
+    method::AbstractNLSolverMethod{FT},
+    soltype::SolutionType = CompactSolution(),
+    tol::Union{Nothing, AbstractTolerance} = nothing,
+    maxiters::Union{Nothing, Int} = 10_000,
+) where {FT <: FTypes, F <: Function}
+    if tol === nothing
+        tol = ResidualTolerance{eltype(FT)}(sqrt(eps(FT)))
+    end
+    return solve!(method, method_args(method)..., soltype, tol, maxiters)
 end
 
 end

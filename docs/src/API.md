@@ -4,16 +4,40 @@
 CurrentModule = NLSolvers
 ```
 
-## NLSolvers
-
 ```@docs
 NLSolvers
 ```
 
-## Types
+## Numerical Methods
 
 ```@docs
-AbstractNonLinearSystem
-NonLinearSystem
+NewtonsMethod
+NewtonsMethodAD
 ```
 
+## Solve
+
+```@docs
+solve!
+```
+
+## Solution types
+
+```@docs
+CompactSolution
+VerboseSolution
+```
+
+## Results types
+
+```@docs
+CompactSolutionResults
+VerboseSolutionResults
+```
+
+## Stopping conditions (tolerances)
+
+```@docs
+ResidualTolerance
+SolutionTolerance
+```

@@ -1,9 +1,6 @@
 using NLSolvers, Documenter
 
-pages = Any[
-    "Home" => "index.md",
-    "API" => "API.md",
-]
+pages = Any["Home" => "index.md", "API" => "API.md"]
 
 mathengine = MathJax(Dict(
     :TeX => Dict(
@@ -24,6 +21,7 @@ makedocs(
     strict = true,
     format = format,
     clean = true,
+    checkdocs = :exports,
     modules = [NLSolvers],
     pages = pages,
 )
@@ -33,4 +31,3 @@ deploydocs(
     target = "build",
     push_preview = true,
 )
-
