@@ -7,9 +7,9 @@ else
 end
 
 using Test
-using NLSolvers
+using NonlinearSolvers
 
-@testset "NLSolvers tests" begin
+@testset "NonlinearSolvers tests" begin
     function f!(F, x)
         t = Tuple(x)
         F_nt = ntuple(Val(length(F))) do i

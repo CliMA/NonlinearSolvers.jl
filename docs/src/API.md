@@ -1,11 +1,11 @@
 # API
 
 ```@meta
-CurrentModule = NLSolvers
+CurrentModule = NonlinearSolvers
 ```
 
 ```@docs
-NLSolvers
+NonlinearSolvers
 ```
 
 ## Numerical Methods

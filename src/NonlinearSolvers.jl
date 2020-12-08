@@ -1,9 +1,9 @@
 """
-    NLSolvers
+    NonlinearSolvers
 
 A set of solvers for systems of non-linear equations
 """
-module NLSolvers
+module NonlinearSolvers
 
 using DocStringExtensions
 using ForwardDiff
@@ -13,16 +13,16 @@ export solve!
 const FTypes = Union{AbstractFloat, AbstractArray}
 
 """
-    AbstractNLSolverMethod
+    AbstractNonlinearSolverMethod
 
 A super type for non-linear systems
 """
-abstract type AbstractNLSolverMethod{FTypes} end
+abstract type AbstractNonlinearSolverMethod{FTypes} end
 
 """
-    method_args(method::AbstractNLSolverMethod)
+    method_args(method::AbstractNonlinearSolverMethod)
 
-Return tuple of positional args for `AbstractNLSolverMethod`.
+Return tuple of positional args for `AbstractNonlinearSolverMethod`.
 """
 function method_args end
 
@@ -35,7 +35,7 @@ include("newton_method_ad.jl")
 # Main entry point: Dispatch to specific method
 """
     solve!(
-        method::AbstractNLSolverMethod{FT},
+        method::AbstractNonlinearSolverMethod{FT},
         soltype::SolutionType = CompactSolution(),
         tol::Union{Nothing, AbstractTolerance} = nothing,
         maxiters::Union{Nothing, Int} = 10_000,
@@ -48,7 +48,7 @@ Solve the non-linear system given
  - `maxiters` the maximum number of iterations to perform
 """
 function solve!(
-    method::AbstractNLSolverMethod{FT},
+    method::AbstractNonlinearSolverMethod{FT},
     soltype::SolutionType = CompactSolution(),
     tol::Union{Nothing, AbstractTolerance} = nothing,
     maxiters::Union{Nothing, Int} = 10_000,
