@@ -1,4 +1,4 @@
-name = "NLSolvers"
+name = "NonlinearSolvers"
 uuid = "f4b8ab15-8e73-4e04-9661-b5912071d22b"
 authors = ["Climate Modeling Alliance"]
 version = "0.1.0"

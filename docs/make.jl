@@ -1,4 +1,4 @@
-using NLSolvers, Documenter
+using NonlinearSolvers, Documenter
 
 pages = Any["Home" => "index.md", "API" => "API.md"]
 
@@ -16,18 +16,18 @@ format = Documenter.HTML(
 )
 
 makedocs(
-    sitename = "NLSolvers.jl",
+    sitename = "NonlinearSolvers.jl",
     doctest = true,
     strict = true,
     format = format,
     clean = true,
     checkdocs = :exports,
-    modules = [NLSolvers],
+    modules = [NonlinearSolvers],
     pages = pages,
 )
 
 deploydocs(
-    repo = "github.com/CliMA/NLSolvers.jl.git",
+    repo = "github.com/CliMA/NonlinearSolvers.jl.git",
     target = "build",
     push_preview = true,
 )

@@ -14,7 +14,7 @@ A non-linear system of equations type.
 # Fields
 $(DocStringExtensions.FIELDS)
 """
-struct NewtonsMethod{FT, F!, J!, A, JA} <: AbstractNLSolverMethod{FT}
+struct NewtonsMethod{FT, F!, J!, A, JA} <: AbstractNonlinearSolverMethod{FT}
     "Function to find the root of"
     f!::F!
     "Jacobian of `f!`"

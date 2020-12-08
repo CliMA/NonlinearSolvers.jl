@@ -10,7 +10,7 @@ A non-linear system of equations type.
 # Fields
 $(DocStringExtensions.FIELDS)
 """
-struct NewtonsMethodAD{FT, F!, A, JA} <: AbstractNLSolverMethod{FT}
+struct NewtonsMethodAD{FT, F!, A, JA} <: AbstractNonlinearSolverMethod{FT}
     "Function to find the root of"
     f!::F!
     "Initial guess"
