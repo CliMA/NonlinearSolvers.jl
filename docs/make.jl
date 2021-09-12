@@ -30,4 +30,6 @@ deploydocs(
     repo = "github.com/CliMA/NonlinearSolvers.jl.git",
     target = "build",
     push_preview = true,
+    devbranch = "main",
+    forcepush = true,
 )

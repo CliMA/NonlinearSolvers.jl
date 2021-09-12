@@ -19,7 +19,7 @@ A simple GPU-friendly package for solving systems of non-linear equations.
 [bkci-img]: https://badge.buildkite.com/663724467d2dc86a8a0fd7a5e7148329bb986a127d25cc5fda.svg
 [bkci-url]: https://buildkite.com/clima/nonlinearsolvers-ci
 
-[codecov-img]: https://codecov.io/gh/CliMA/NonlinearSolvers.jl/branch/master/graph/badge.svg
+[codecov-img]: https://codecov.io/gh/CliMA/NonlinearSolvers.jl/branch/main/graph/badge.svg
 [codecov-url]: https://codecov.io/gh/CliMA/NonlinearSolvers.jl
 
 [bors-img]: https://bors.tech/images/badge_small.svg
